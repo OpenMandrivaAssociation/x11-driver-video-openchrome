@@ -72,7 +72,7 @@ rm -rf %{buildroot}
 %{_libdir}/libopenchromeXvMCPro.so.1.0.0
 %{_libdir}/xorg/modules/drivers/openchrome_drv.la
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so
-%{_mandir}/man4/openchrome.4.bz2
+%{_mandir}/man4/openchrome.*
 
 
 
