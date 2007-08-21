@@ -1,4 +1,4 @@
-%define snapshot_date 20070406
+%define snapshot_date 20070821
 
 # 20070406 = svnrel 313
 # svn co http://svn.openchrome.org/svn/trunk openchrome
