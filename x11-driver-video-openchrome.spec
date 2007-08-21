@@ -10,7 +10,7 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.0.%{snapshot_date}
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: The X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
@@ -21,6 +21,7 @@ Patch1: unichrome-fixcompile.patch
 Patch2: vt1625_NTSC_modes.patch
 # http://billionmokeys.net/openchrome
 Patch3: billionmokeys.net_openchrome.patch
+Patch4: openchrome-chrome9-support.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -45,6 +46,7 @@ The X.org driver for Imstt
 #patch1 -p1 -b .fixcompile
 %patch2 -p0 -b .vt1625_NTSC_modes
 %patch3 -p0 -b .billionmonkeys
+%patch4 -p1 -b .chrome9
 sh autogen.sh
 
 %build
