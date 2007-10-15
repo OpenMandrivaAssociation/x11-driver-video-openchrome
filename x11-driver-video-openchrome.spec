@@ -1,6 +1,6 @@
-%define snapshot_date 20070821
+%define snapshot_date 20071015
 
-# 20070406 = svnrel 313
+# 20071015 = svnrel 412
 # svn co http://svn.openchrome.org/svn/trunk openchrome
 
 # (anssi) The unversioned symlink of XvMC library must be present in
@@ -10,7 +10,7 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.0.%{snapshot_date}
-Release: %mkrel 2
+Release: %mkrel 1
 Summary: The X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
@@ -36,12 +36,12 @@ BuildRequires: x11-util-macros >= 1.0.1
 Conflicts: xorg-x11-server < 7.0
 
 %description
-The X.org driver for Imstt
-
-
+A free and Open Source video driver for the VIA/S3G
+UniChrome and UniChrome Pro graphics chipsets. (CLE266,
+KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
-%setup -q -n openchrome
+%setup -q -n openchrome-%{snapshot_date}
 %patch0 -p1 -b .driver_name
 #patch1 -p1 -b .fixcompile
 %patch2 -p0 -b .vt1625_NTSC_modes
@@ -50,9 +50,7 @@ The X.org driver for Imstt
 sh autogen.sh
 
 %build
-%configure2_5x	--x-includes=%{_includedir}\
-		--x-libraries=%{_libdir}
-
+%configure
 %make
 
 %install
@@ -75,6 +73,4 @@ rm -rf %{buildroot}
 %{_libdir}/xorg/modules/drivers/openchrome_drv.la
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so
 %{_mandir}/man4/openchrome.*
-
-
 
