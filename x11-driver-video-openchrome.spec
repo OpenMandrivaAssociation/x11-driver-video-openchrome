@@ -23,6 +23,7 @@ Patch2: vt1625_NTSC_modes.patch
 Patch3: billionmokeys.net_openchrome.patch
 Patch4: openchrome-chrome9-support.patch
 License: MIT
+BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: GL-devel
 BuildRequires: libdrm-devel
