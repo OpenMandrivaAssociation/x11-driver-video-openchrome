@@ -1,5 +1,5 @@
-%define snapshot_date 20071015
-
+## keeping it here just in case someone wants to use the SVN version
+# %define snapshot_date 20071015
 # 20071015 = svnrel 412
 # svn co http://svn.openchrome.org/svn/trunk openchrome
 
@@ -9,19 +9,14 @@
 %define _requires_exceptions devel(
 
 Name: x11-driver-video-openchrome
-Version: 0.2.0.%{snapshot_date}
+Version: 0.2.901
 Release: %mkrel 1
 Summary: The X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
-Source: openchrome-%{snapshot_date}.tar.bz2
-Patch0: unichrome-driver_name.patch
-Patch1: unichrome-fixcompile.patch
-# http://wiki.openchrome.org/pipermail/openchrome-users/2007-February/002752.html
-Patch2: vt1625_NTSC_modes.patch
+Source: http://www.openchrome.org/releases/xf86-video-openchrome-0.2.901.tar.bz2
 # http://billionmokeys.net/openchrome
-Patch3: billionmokeys.net_openchrome.patch
-Patch4: openchrome-chrome9-support.patch
+Patch0: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -41,13 +36,8 @@ UniChrome and UniChrome Pro graphics chipsets. (CLE266,
 KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
-%setup -q -n openchrome-%{snapshot_date}
-%patch0 -p1 -b .driver_name
-#patch1 -p1 -b .fixcompile
-%patch2 -p0 -b .vt1625_NTSC_modes
-%patch3 -p0 -b .billionmonkeys
-%patch4 -p1 -b .chrome9
-sh autogen.sh
+%setup -q -n xf86-video-openchrome-%{version}
+%patch0 -p1 -b .billionmonkeys
 
 %build
 %configure
@@ -62,14 +52,14 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%{_libdir}/libopenchromeXvMC.la
-%{_libdir}/libopenchromeXvMC.so
-%{_libdir}/libopenchromeXvMC.so.1
-%{_libdir}/libopenchromeXvMC.so.1.0.0
-%{_libdir}/libopenchromeXvMCPro.la
-%{_libdir}/libopenchromeXvMCPro.so
-%{_libdir}/libopenchromeXvMCPro.so.1
-%{_libdir}/libopenchromeXvMCPro.so.1.0.0
+%{_libdir}/libchromeXvMC.la
+%{_libdir}/libchromeXvMC.so
+%{_libdir}/libchromeXvMC.so.1
+%{_libdir}/libchromeXvMC.so.1.0.0
+%{_libdir}/libchromeXvMCPro.la
+%{_libdir}/libchromeXvMCPro.so
+%{_libdir}/libchromeXvMCPro.so.1
+%{_libdir}/libchromeXvMCPro.so.1.0.0
 %{_libdir}/xorg/modules/drivers/openchrome_drv.la
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so
 %{_mandir}/man4/openchrome.*
