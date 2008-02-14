@@ -10,13 +10,15 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.901
-Release: %mkrel 1
+Release: %mkrel 2
 Summary: The X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
 Source: http://www.openchrome.org/releases/xf86-video-openchrome-0.2.901.tar.bz2
 # http://billionmokeys.net/openchrome
 Patch0: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
+# http://cvs.fedoraproject.org/viewcvs/*checkout*/rpms/xorg-x11-drv-openchrome/F-8/openchrome-0.2.901-P4M900_fifo_settings.patch?rev=1.1
+Patch1: openchrome-0.2.901-P4M900_fifo_settings.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -38,6 +40,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
 %patch0 -p1 -b .billionmonkeys
+%patch1 -p0 -b .P4M900_fifo_settings
 
 %build
 %configure
