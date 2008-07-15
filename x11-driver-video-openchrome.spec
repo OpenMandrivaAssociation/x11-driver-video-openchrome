@@ -61,6 +61,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 %patch101 -p1 -b .underlink
 
 %build
+# needed for underlink.patch - AdamW 2008/07
 autoreconf
 %configure2_5x --disable-static --enable-dri
 %make
