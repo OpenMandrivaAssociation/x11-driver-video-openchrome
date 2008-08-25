@@ -7,23 +7,15 @@
 %define _requires_exceptions devel(
 
 Name: x11-driver-video-openchrome
-Version: 0.2.902
+Version: 0.2.903
 Release: %mkrel 1
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
 Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar.gz
-# Fedora patches (stay in sync with Fedora rawhide)
-# Patches with _mdv extension had to be rediffed for MDV for some
-# reason - AdamW 2008/07
+# Patch from Fedora rediffed against 0.2.903
 # re_enable_AGPDMA.patch should only be used when kernel >= 2.6.25rc7
-Patch0: openchrome-0.2.902-re_enable_AGPDMA.patch
-Patch1: openchrome-0.2.902-report_version.patch
-Patch2: openchrome-0.2.902-chipset_revision_mdv.patch
-Patch3: openchrome-0.2.902-unbreak_ActiveDevice.patch
-Patch4: openchrome-0.2.902-CX700_Xv_on_LCD_mdv.patch
-Patch5: openchrome-0.2.902-disable_XvDMA_P4M890_K8M890.patch
-Patch6: openchrome-0.2.902-sync_pciids.patch
+Patch0: openchrome-0.2.903-re_enable_AGPDMA.patch
 # Mandriva patches
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
@@ -50,13 +42,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
-%patch0 -p0 -b .agpdma
-%patch1 -p0 -b .version
-%patch2 -p0 -b .chiprev
-%patch3 -p0 -b .activedevice
-%patch4 -p0 -b .cx700_xv_lcd
-%patch5 -p0 -b .XvDMA
-%patch6 -p0 -b .pciids
+%patch0 -p1 -b .agpdma
 %patch100 -p1 -b .billionmonkeys
 %patch101 -p1 -b .underlink
 
