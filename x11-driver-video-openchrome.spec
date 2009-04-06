@@ -8,19 +8,17 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.903
-Release: %mkrel 3
+Release: %mkrel 4
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
 Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar.gz
-# Patch from Fedora rediffed against 0.2.903
-# re_enable_AGPDMA.patch should only be used when kernel >= 2.6.25rc7
-Patch0: openchrome-0.2.903-re_enable_AGPDMA.patch
+# Patch from Fedora 
+# Update to latest SVN snapshot (rev 740)
+Patch0: openchrome-0.2.903-latest_snapshot.patch
 # Mandriva patches
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
-# Fix underlinking - AdamW 2008/07
-Patch101: xf86-video-openchrome-0.2.902-underlink.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -42,13 +40,14 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
-%patch0 -p1 -b .agpdma
+%patch0 -p0 -b .svnupdate
 %patch100 -p1 -b .billionmonkeys
-%patch101 -p1 -b .underlink
+
+#needed by patch0
+libtoolize
+autoreconf
 
 %build
-# needed for underlink.patch - AdamW 2008/07
-autoreconf
 %configure2_5x --disable-static --enable-dri
 %make
 
