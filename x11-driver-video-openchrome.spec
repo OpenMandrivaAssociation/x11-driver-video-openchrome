@@ -8,15 +8,14 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.903
-Release: %mkrel 6
+Release: %mkrel 7
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
 Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar.gz
-# Patch from Fedora 
-# Update to latest SVN snapshot (rev 755)
-Patch0: openchrome-0.2.903-latest_snapshot.patch
 # Mandriva patches
+# Update to latest SVN snapshot (rev 788)
+Patch0: openchrome-0.2.903-latest_snapshot.patch
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 License: MIT
@@ -40,7 +39,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
-%patch0 -p0 -b .svnupdate
+%patch0 -p1 -b .svnupdate
 %patch100 -p1 -b .billionmonkeys
 
 #needed by patch0
