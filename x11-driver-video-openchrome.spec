@@ -18,6 +18,7 @@ Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar
 Patch0: openchrome-0.2.903-latest_snapshot.patch
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
+Patch101: 0003-IDs-enable-LCD-on-Guillemot-NA01.patch
 License: MIT
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -41,6 +42,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 %setup -q -n xf86-video-openchrome-%{version}
 %patch0 -p1 -b .svnupdate
 %patch100 -p1 -b .billionmonkeys
+%patch101 -p1 -b .na01
 
 #needed by patch0
 libtoolize
