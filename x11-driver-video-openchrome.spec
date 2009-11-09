@@ -7,15 +7,13 @@
 %define _requires_exceptions devel(
 
 Name: x11-driver-video-openchrome
-Version: 0.2.903
-Release: %mkrel 8
+Version: 0.2.904
+Release: %mkrel 1
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
-Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar.gz
+Source0: http://www.openchrome.org/releases/xf86-video-openchrome-%{version}.tar.bz2
 # Mandriva patches
-# Update to latest SVN snapshot (rev 788)
-Patch0: openchrome-0.2.903-latest_snapshot.patch
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 Patch101: 0003-IDs-enable-LCD-on-Guillemot-NA01.patch
@@ -41,7 +39,6 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
-%patch0 -p1 -b .svnupdate
 %patch100 -p1 -b .billionmonkeys
 %patch101 -p1 -b .na01
 %patch102 -p1 -b .xvmc
