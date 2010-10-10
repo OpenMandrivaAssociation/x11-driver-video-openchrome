@@ -8,7 +8,7 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.904
-Release: %mkrel 2
+Release: %mkrel 3
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
