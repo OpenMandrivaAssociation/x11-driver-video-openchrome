@@ -8,7 +8,7 @@
 
 Name: x11-driver-video-openchrome
 Version: 0.2.904
-Release: %mkrel 3
+Release: %mkrel 4
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
@@ -29,6 +29,8 @@ BuildRequires: libxext-devel
 BuildRequires: x11-proto-devel >= 1.0.0
 BuildRequires: x11-server-devel >= 1.0.1
 BuildRequires: x11-util-macros >= 1.0.1
+
+Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
 
 Conflicts: xorg-x11-server < 7.0
 
