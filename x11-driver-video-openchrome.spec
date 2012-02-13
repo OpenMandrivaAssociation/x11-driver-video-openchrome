@@ -7,8 +7,8 @@
 %define _requires_exceptions devel(
 
 Name: x11-driver-video-openchrome
-Version: 0.2.904
-Release: %mkrel 7
+Version: 0.2.905
+Release: 1
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
@@ -19,7 +19,6 @@ Patch100: xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 Patch101: 0003-IDs-enable-LCD-on-Guillemot-NA01.patch
 Patch102: openchrome_mips_xvmc.patch
 License: MIT
-BuildRoot: %{_tmppath}/%{name}-root
 
 BuildRequires: GL-devel
 BuildRequires: libdrm-devel
@@ -42,7 +41,6 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 %prep
 %setup -q -n xf86-video-openchrome-%{version}
 %patch100 -p1 -b .billionmonkeys
-%patch101 -p1 -b .na01
 %patch102 -p1 -b .xvmc
 
 #needed by patch0
@@ -54,18 +52,13 @@ autoreconf
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 # From Fedora:
 # FIXME: Remove all libtool archives (*.la) from modules directory.  This
 # should be fixed in upstream Makefile.am or whatever.
 find %{buildroot} -regex ".*\.la$" | xargs rm -f --
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root)
 %{_libdir}/libchromeXvMC.so
 %{_libdir}/libchromeXvMC.so.1
 %{_libdir}/libchromeXvMC.so.1.0.0
@@ -74,4 +67,3 @@ rm -rf %{buildroot}
 %{_libdir}/libchromeXvMCPro.so.1.0.0
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so
 %{_mandir}/man4/openchrome.*
-
