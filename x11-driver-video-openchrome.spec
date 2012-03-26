@@ -4,7 +4,7 @@
 # (anssi) The unversioned symlink of XvMC library must be present in
 # %{_libdir} during normal use, as libXvMC uses that name for dlopening.
 # Our devel requires finder catches that, hence this exception:
-%define _requires_exceptions devel(
+%define __noautoreq 'devel\\('
 
 Name: x11-driver-video-openchrome
 Version: 0.2.905
@@ -26,7 +26,7 @@ BuildRequires: libx11-devel
 BuildRequires: libxvmc-devel
 BuildRequires: libxext-devel
 BuildRequires: x11-proto-devel >= 1.0.0
-BuildRequires: x11-server-devel >= 1.0.1
+BuildRequires: x11-server-devel >= 1.12
 BuildRequires: x11-util-macros >= 1.0.1
 
 Requires: x11-server-common %(xserver-sdk-abi-requires videodrv)
