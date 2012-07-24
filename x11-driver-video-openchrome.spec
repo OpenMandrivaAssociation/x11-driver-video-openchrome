@@ -7,8 +7,8 @@
 %define __noautoreq 'devel\\('
 
 Name: x11-driver-video-openchrome
-Version: 0.2.905
-Release: 2
+Version: 0.3.0
+Release: 1
 Summary: X.org driver for Unichrome cards from the OpenChrome project
 Group: System/X11
 URL: http://www.openchrome.org
