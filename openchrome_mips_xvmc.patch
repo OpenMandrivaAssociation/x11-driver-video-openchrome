@@ -1,0 +1,13 @@
+Index: openchrome/configure.ac
+===================================================================
+--- openchrome.orig/configure.ac
++++ openchrome/configure.ac
+@@ -99,6 +99,8 @@ if test "$DRI" = yes; then
+                 XVMC=yes ;;
+             amd64*|x86_64*)
+                 XVMC=yes ;;
++	    mips*)
++		XVMC=yes ;;
+             *)
+                 XVMC=no ;;
+         esac
