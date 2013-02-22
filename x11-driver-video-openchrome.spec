@@ -44,10 +44,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 %patch100 -p1 -b .billionmonkeys~
 %patch102 -p1 -b .xvmc~
 %patch103 -p1 -b .am113~
-
-#needed by patch0
-libtoolize
-autoreconf
+autoreconf -fiv
 
 %build
 %configure2_5x --disable-static --enable-dri
