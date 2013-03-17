@@ -43,7 +43,7 @@ KN400, KM400, K8M800, PM800, CN400, VN800)
 
 %package -n %{libxvmc}
 Summary:	X Library
-Group:		System/Libaries
+Group:		System/Libraries
 Conflicts:	%{name} < 0.3.1-3
 
 %description -n %{libxvmc}
@@ -51,7 +51,7 @@ This package contains a shared library for %{name}.
 
 %package -n %{libpro}
 Summary:	X Library
-Group:		System/Libaries
+Group:		System/Libraries
 Conflicts:	%{name} < 0.3.1-3
 
 %description -n %{libpro}
