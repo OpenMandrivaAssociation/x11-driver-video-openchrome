@@ -6,15 +6,15 @@
 # Our devel requires finder catches that, hence this exception:
 %define __noautoreq 'devel\\('
 
-%define major	1
-%define libxvmc	%mklibname chromeXvMC %{major}
-%define libpro	%mklibname chromeXvMCPro %{major}
-%define devname	%mklibname %{name} -d
+%define major 1
+%define libxvmc %mklibname chromeXvMC %{major}
+%define libpro %mklibname chromeXvMCPro %{major}
+%define devname %mklibname %{name} -d
 
 Summary:	X.org driver for Unichrome cards from the OpenChrome project
 Name:		x11-driver-video-openchrome
-Version:	0.3.1
-Release:	3
+Version:	0.3.2
+Release:	1
 Group:		System/X11
 License:	MIT
 Url:		http://www.openchrome.org
