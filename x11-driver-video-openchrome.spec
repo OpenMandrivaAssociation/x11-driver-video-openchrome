@@ -24,7 +24,7 @@ Source0:	http://xorg.freedesktop.org/archive/individual/driver/xf86-video-opench
 Patch100:	xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 Patch101:	0003-IDs-enable-LCD-on-Guillemot-NA01.patch
 Patch102:	openchrome_mips_xvmc.patch
-
+Patch104:	xf86-video-openchrome-0.3.2-link-against-X11.patch
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(x11)
@@ -73,9 +73,10 @@ This package contains the development files for %{name}.
 %setup -qn xf86-video-openchrome-%{version}
 %patch100 -p1 -b .billionmonkeys~
 %patch102 -p1 -b .xvmc~
-
+%patch104 -p1 -b .link
 
 %build
+autoreconf -fiv
 %configure2_5x \
 	--disable-static \
 	--enable-dri

@@ -1,0 +1,12 @@
+diff -Naur xf86-video-openchrome-0.3.2/src/Makefile.am xf86-video-openchrome-0.3.2.tpg/src/Makefile.am
+--- xf86-video-openchrome-0.3.2/src/Makefile.am	2013-03-27 21:59:08.000000000 +0000
++++ xf86-video-openchrome-0.3.2.tpg/src/Makefile.am	2013-03-29 16:12:21.360262012 +0000
+@@ -31,7 +31,7 @@
+ CONFIG_CLEAN_FILES= version.h
+ AM_CFLAGS = @XORG_CFLAGS@ @LIBUDEV_CFLAGS@ @DRI_CFLAGS@
+ openchrome_drv_la_LTLIBRARIES = openchrome_drv.la
+-openchrome_drv_la_LDFLAGS = -module -avoid-version @LIBUDEV_LIBS@
++openchrome_drv_la_LDFLAGS = -module -avoid-version -lX11 @LIBUDEV_LIBS@
+ openchrome_drv_ladir = @moduledir@/drivers
+ 
+ openchrome_drv_la_SOURCES = \
