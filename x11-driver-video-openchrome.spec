@@ -33,7 +33,9 @@ BuildRequires:	pkgconfig(xorg-macros)
 BuildRequires:	pkgconfig(xorg-server)
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
+BuildRequires:	pkgconfig(udev)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
+Requires:	udev
 
 %description
 A free and Open Source video driver for the VIA/S3G
