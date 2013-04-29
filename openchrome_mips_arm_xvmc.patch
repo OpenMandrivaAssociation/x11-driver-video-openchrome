@@ -1,0 +1,15 @@
+diff --git a/configure.ac b/configure.ac
+index 238e3af..6bce559 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -126,6 +126,10 @@ if test "$DRI" = yes; then
+                 XVMC=yes ;;
+             amd64*|x86_64*)
+                 XVMC=yes ;;
++	    mips*)
++		XVMC=yes ;;
++	    arm*)
++		XVMC=yes ;;
+             *)
+                 XVMC=no ;;
+         esac

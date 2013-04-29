@@ -23,7 +23,7 @@ Source0:	http://xorg.freedesktop.org/archive/individual/driver/xf86-video-opench
 # http://billionmonkeys.net/openchrome - broken 2008/07
 Patch100:	xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 Patch101:	0003-IDs-enable-LCD-on-Guillemot-NA01.patch
-Patch102:	openchrome_mips_xvmc.patch
+Patch102:	openchrome_mips_arm_xvmc.patch
 Patch104:	xf86-video-openchrome-0.3.2-link-against-X11.patch
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
@@ -79,6 +79,7 @@ This package contains the development files for %{name}.
 autoreconf -fiv
 %configure2_5x \
 	--disable-static \
+	--enable-viaregtool \
 	--enable-dri
 %make
 
@@ -88,6 +89,7 @@ autoreconf -fiv
 %files
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so
 %{_mandir}/man4/openchrome.*
+%{_sbindir}/via_regs_dump
 
 %files  -n %{libxvmc}
 %{_libdir}/libchromeXvMC.so.%{major}*
