@@ -36,6 +36,7 @@ BuildRequires:	pkgconfig(xvmc)
 BuildRequires:	pkgconfig(udev)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Requires:	udev
+ExclusiveArch:	%{ix86} x86_64
 
 %description
 A free and Open Source video driver for the VIA/S3G
@@ -77,7 +78,7 @@ This package contains the development files for %{name}.
 
 %build
 autoreconf -fiv
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-viaregtool \
 	--enable-dri
