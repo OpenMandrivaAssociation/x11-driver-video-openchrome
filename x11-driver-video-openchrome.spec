@@ -13,7 +13,7 @@
 
 Summary:	X.org driver for Unichrome cards from the OpenChrome project
 Name:		x11-driver-video-openchrome
-Version:	0.4.0
+Version:	0.5.0
 Release:	1
 Group:		System/X11
 License:	MIT
@@ -101,4 +101,3 @@ autoreconf -fiv
 %files  -n %{devname}
 %{_libdir}/libchromeXvMC.so
 %{_libdir}/libchromeXvMCPro.so
-
