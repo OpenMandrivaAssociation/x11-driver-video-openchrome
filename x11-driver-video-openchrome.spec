@@ -4,7 +4,7 @@
 # (anssi) The unversioned symlink of XvMC library must be present in
 # %{_libdir} during normal use, as libXvMC uses that name for dlopening.
 # Our devel requires finder catches that, hence this exception:
-%define __noautoreq 'devel\\('
+%global __requires_exclude devel\\(
 
 %define major 1
 %define libxvmc %mklibname chromeXvMC %{major}
@@ -14,7 +14,7 @@
 Summary:	X.org driver for Unichrome cards from the OpenChrome project
 Name:		x11-driver-video-openchrome
 Version:	0.6.0
-Release:	1
+Release:	2
 Group:		System/X11
 License:	MIT
 Url:		http://www.openchrome.org
@@ -36,7 +36,7 @@ BuildRequires:	pkgconfig(xvmc)
 BuildRequires:	pkgconfig(udev)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Requires:	udev
-ExclusiveArch:	%{ix86} x86_64
+ExclusiveArch:	%{ix86} x86_64 znver1
 
 %description
 A free and Open Source video driver for the VIA/S3G
