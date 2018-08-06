@@ -67,7 +67,7 @@ Requires:	%{libpro} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Conflicts:	%{name} < 0.3.1-3
 
-%description -n %{libpro}
+%description -n %{devname}
 This package contains the development files for %{name}.
 
 %prep
