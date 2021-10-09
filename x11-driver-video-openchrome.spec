@@ -1,3 +1,5 @@
+%global optflags %{optflags} -fcommon
+
 # keeping it here just in case someone wants to use the SVN version
 # svn co http://svn.openchrome.org/svn/trunk openchrome
 
@@ -25,6 +27,7 @@ Patch100:	xf86-video-openchrome-0.2.901-billionmokeys.net_modelines.patch
 Patch101:	0003-IDs-enable-LCD-on-Guillemot-NA01.patch
 Patch102:	openchrome_mips_arm_xvmc.patch
 Patch104:	xf86-video-openchrome-0.3.2-link-against-X11.patch
+Patch105:	xf86-video-openchrome-0.6.0-linking.patch
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(x11)
@@ -34,9 +37,10 @@ BuildRequires:	pkgconfig(xorg-server)
 BuildRequires:	pkgconfig(xproto)
 BuildRequires:	pkgconfig(xvmc)
 BuildRequires:	pkgconfig(udev)
+BuildRequires:	pkgconfig(xv)
 Requires:	x11-server-common %(xserver-sdk-abi-requires videodrv)
 Requires:	udev
-ExclusiveArch:	%{ix86} x86_64 znver1
+ExclusiveArch:	%{ix86} %{x86_64}
 
 %description
 A free and Open Source video driver for the VIA/S3G
@@ -75,6 +79,7 @@ This package contains the development files for %{name}.
 %patch100 -p1 -b .billionmonkeys~
 %patch102 -p1 -b .xvmc~
 %patch104 -p1 -b .link
+%patch105 -p1
 
 %build
 autoreconf -fiv
@@ -82,10 +87,11 @@ autoreconf -fiv
 	--disable-static \
 	--enable-viaregtool \
 	--enable-dri
-%make
+
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files
 %{_libdir}/xorg/modules/drivers/openchrome_drv.so

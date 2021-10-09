@@ -1,0 +1,33 @@
+diff -Nrup a/src/xvmc/Makefile.am b/src/xvmc/Makefile.am
+--- a/src/xvmc/Makefile.am	2016-08-29 05:17:42.000000000 +0200
++++ b/src/xvmc/Makefile.am	2020-02-26 16:16:34.108177807 +0100
+@@ -26,11 +26,11 @@ libchromeXvMCPro_la_SOURCES = \
+ 
+ libchromeXvMC_la_CFLAGS = @XORG_CFLAGS@ @DRI_CFLAGS@ @XVMC_CFLAGS@ -I$(top_srcdir)/src -I$(top_srcdir)/src/xvmc -DTRUE=1 -DFALSE=0
+ libchromeXvMC_la_LDFLAGS = -version-number 1:0:0
+-libchromeXvMC_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@
++libchromeXvMC_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@ -lXv
+ 
+ libchromeXvMCPro_la_CFLAGS = @XORG_CFLAGS@ @DRI_CFLAGS@ @XVMC_CFLAGS@ -I$(top_srcdir)/src -I$(top_srcdir)/src/xvmc -DTRUE=1 -DFALSE=0
+ libchromeXvMCPro_la_LDFLAGS = -version-number 1:0:0
+-libchromeXvMCPro_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@
++libchromeXvMCPro_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@ -lXv
+ else
+ EXTRA_DIST = \
+ 	driDrawable.c \
+diff -Nrup a/src/xvmc/Makefile.in b/src/xvmc/Makefile.in
+--- a/src/xvmc/Makefile.in	2017-03-07 12:19:03.000000000 +0100
++++ b/src/xvmc/Makefile.in	2020-02-26 16:18:31.159086950 +0100
+@@ -294,10 +294,10 @@ top_srcdir = @top_srcdir@
+ 
+ @XVMC_TRUE@libchromeXvMC_la_CFLAGS = @XORG_CFLAGS@ @DRI_CFLAGS@ @XVMC_CFLAGS@ -I$(top_srcdir)/src -I$(top_srcdir)/src/xvmc -DTRUE=1 -DFALSE=0
+ @XVMC_TRUE@libchromeXvMC_la_LDFLAGS = -version-number 1:0:0
+-@XVMC_TRUE@libchromeXvMC_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@
++@XVMC_TRUE@libchromeXvMC_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@ -lXv
+ @XVMC_TRUE@libchromeXvMCPro_la_CFLAGS = @XORG_CFLAGS@ @DRI_CFLAGS@ @XVMC_CFLAGS@ -I$(top_srcdir)/src -I$(top_srcdir)/src/xvmc -DTRUE=1 -DFALSE=0
+ @XVMC_TRUE@libchromeXvMCPro_la_LDFLAGS = -version-number 1:0:0
+-@XVMC_TRUE@libchromeXvMCPro_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@
++@XVMC_TRUE@libchromeXvMCPro_la_LIBADD = @DRI_LIBS@ @XVMC_LIBS@ -lXv
+ @XVMC_FALSE@EXTRA_DIST = \
+ @XVMC_FALSE@	driDrawable.c \
+ @XVMC_FALSE@	driDrawable.h \
