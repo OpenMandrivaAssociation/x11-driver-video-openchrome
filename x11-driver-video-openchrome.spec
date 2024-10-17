@@ -19,7 +19,7 @@ Version:	0.6.0
 Release:	5
 Group:		System/X11
 License:	MIT
-Url:		http://www.openchrome.org
+Url:		https://www.openchrome.org
 Source0:	http://xorg.freedesktop.org/archive/individual/driver/xf86-video-openchrome-%{version}.tar.bz2
 # Mandriva patches
 # http://billionmonkeys.net/openchrome - broken 2008/07
