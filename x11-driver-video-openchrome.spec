@@ -28,6 +28,11 @@ Patch101:	0003-IDs-enable-LCD-on-Guillemot-NA01.patch
 Patch102:	openchrome_mips_arm_xvmc.patch
 Patch104:	xf86-video-openchrome-0.3.2-link-against-X11.patch
 Patch105:	xf86-video-openchrome-0.6.0-linking.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(libdrm)
 BuildRequires:	pkgconfig(x11)
